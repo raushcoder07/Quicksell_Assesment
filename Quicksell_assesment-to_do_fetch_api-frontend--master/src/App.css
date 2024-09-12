@@ -1,4 +1,4 @@
-
+/* App.css */
 .App {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
@@ -25,7 +25,7 @@ h1 {
   border: 1px solid #ccc;
   font-size: 16px;
   background-color: #fff;
-  transition: all 0.3s;
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
 .controls select:hover {
@@ -48,7 +48,7 @@ h1 {
   padding: 10px;
   width: 300px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .task-category:hover {
@@ -72,7 +72,7 @@ h1 {
   padding: 15px;
   margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .task-card:hover {
@@ -80,51 +80,94 @@ h1 {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.task-card h3 {
-  color: #34495e;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-/* Task card details */
 .task-card p {
   margin: 5px 0;
   color: #7f8c8d;
 }
 
-.task-card p span {
-  font-weight: bold;
+.task-card p strong {
   color: #2c3e50;
 }
 
 /* Adding user avatar in task cards */
-.task-card .user-avatar {
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  background-color: #007bff; /* Default color */
 }
 
-.task-card .user-avatar img {
+.user-avatar.small {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
+  font-size: 12px; /* Adjust size for smaller avatars */
 }
 
-.task-card .user-avatar .user-name {
-  font-size: 14px;
-  color: #34495e;
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .task-category {
+    max-width: 800px; /* Adjusted max-width for tablets */
+    margin: 10px auto; /* Center and maintain margin */
+  }
 }
 
-/* Mobile responsive adjustments */
 @media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .controls select {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
+
   .task-board {
     flex-direction: column;
     align-items: center;
   }
 
   .task-category {
-    width: 100%;
-    max-width: 600px;
+    max-width: 600px; /* Adjusted max-width for smaller tablets and larger mobile screens */
+    margin: 10px auto; /* Center and maintain margin */
+  }
+
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-category {
+    max-width: 100%; /* Full width for very small screens */
+    margin: 5px auto; /* Center and maintain margin */
+    padding: 5px;
+  }
+
+  .task-card {
+    padding: 10px;
+    margin: 5px 0;
+  }
+
+  .controls select {
+    font-size: 14px;
+  }
+
+  .task-card h3 {
+    font-size: 16px;
   }
 }
