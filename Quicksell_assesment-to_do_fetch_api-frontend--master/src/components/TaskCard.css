@@ -1,30 +1,62 @@
 .task-card {
-    position: relative; /* Enables positioning of child elements absolutely */
     border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    margin: 8px;
-    background-color: #fff;
-    overflow: hidden; /* Ensures content does not overflow the border */
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    background-color: #f9f9f9; /* Light background */
   }
   
   .task-card-content {
-    padding-right: 60px; /* Space for avatar */
+    flex: 1;
+    padding-right: 50px; /* Padding to give space for the avatar */
+  }
+  
+  .task-id {
+    color: #aaa; /* Light color for ID */
+    font-size: 14px;
+  }
+  
+  .task-title {
+    color: #333; /* Dark color for title */
+    font-size: 16px;
+    margin-bottom: 10px; /* Adds space below the title */
+  }
+  
+  .task-card-toggle {
+    cursor: pointer;
+    color: #aaa; /* Same color as ID for toggle text */
+    font-size: 14px;
+    text-decoration: underline;
   }
   
   .user-avatar {
-    position: absolute;
-    top: 16px; /* Adjust top position as needed */
-    right: 16px; /* Adjust right position as needed */
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background-color: #007bff; /* Placeholder color */
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    color: #fff;
     font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+    background-color: #007bff; /* Default color */
+  }
+  
+  .user-avatar.small {
+    width: 30px;
+    height: 30px;
+    font-size: 12px; /* Adjust size for smaller avatars */
+  }
+  
+  .task-card:hover {
+    background-color: #f1f1f1; /* Slight hover effect */
+    transition: background-color 0.3s ease;
   }
   

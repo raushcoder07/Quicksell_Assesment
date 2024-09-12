@@ -27,6 +27,16 @@ const TaskBoard = ({ taskData, users, grouping, ordering }) => {
     });
   };
 
+  const calculateCounts = (groupedTasks) => {
+    const counts = {};
+    Object.keys(groupedTasks).forEach((key) => {
+      counts[key] = groupedTasks[key].length;
+    });
+    return counts;
+  };
+
+  const counts = calculateCounts(groupedTasks);
+
   return (
     <div className="task-board">
       {Object.keys(groupedTasks).map((groupKey) => (
@@ -35,6 +45,7 @@ const TaskBoard = ({ taskData, users, grouping, ordering }) => {
           groupKey={groupKey}
           tasks={sortTasks(groupedTasks[groupKey])}
           users={users}
+          count={counts[groupKey]}  // Pass the count to TaskCategory
           grouping={grouping}
         />
       ))}

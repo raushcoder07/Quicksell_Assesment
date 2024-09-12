@@ -1,8 +1,7 @@
-// TaskCategory.js
 import React from 'react';
 import TaskCard from './TaskCard';
 
-const TaskCategory = ({ groupKey, tasks, users, grouping }) => {
+const TaskCategory = ({ groupKey, tasks, users, count, grouping }) => {
   const getUser = (userId) => {
     const user = users.find((u) => u.id === userId);
     return user ? user.name : 'Unknown';
@@ -18,9 +17,9 @@ const TaskCategory = ({ groupKey, tasks, users, grouping }) => {
 
   return (
     <div className="task-category">
-      <h2>{categoryTitle()}</h2>
+      <h2>{categoryTitle()} {count}</h2> {/* Show the count here */}
       {tasks.map((task) => (
-        <TaskCard key={task.id} task={task} users={users} />
+        <TaskCard key={task.id} task={task} users={users}  />
       ))}
     </div>
   );
